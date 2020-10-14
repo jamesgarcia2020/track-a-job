@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import * as trackAPI from '../../services/tracks-api';
 import TrackListPage from '../../components/TrackListPage/TrackListPage';
 import AddTrackPage from '../../components/AddTrackPage/AddTrackPage';
+import TrackDetailPage from '../../components/TrackDetailPage/TrackDetailPage';
 
 
 class App extends Component {
@@ -80,6 +81,10 @@ render(){
             <AddTrackPage
     handleAddTrack={this.handleAddTrack}
   />
+} />
+
+<Route exact path='/details' render={({location}) => 
+ <TrackDetailPage location={location}/>
 } />
         </main>
       </Switch>
