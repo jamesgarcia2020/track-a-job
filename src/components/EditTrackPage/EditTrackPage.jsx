@@ -5,7 +5,7 @@ class EditTrackPage extends Component {
  state = {
    invalidForm: false,
    // Refer to PuppyListItem to see how puppy is being passed via the <Link>
-   formData: this.props.location.state.track,
+   formData: this.props.location.state.track
  };
 
  formRef = React.createRef();
@@ -16,7 +16,7 @@ class EditTrackPage extends Component {
  };
 
  handleChange = e => {
-   const formData = {...this.state.formData, [e.target.company]: e.target.value};
+   const formData = {...this.state.formData, [e.target.name]: e.target.value};
    this.setState({
      formData,
      invalidForm: !this.formRef.current.checkValidity()
@@ -35,7 +35,7 @@ class EditTrackPage extends Component {
              name="company"
              value={this.state.formData.company}
              onChange={this.handleChange}
-             required
+             
            />
          </div>
          <div className="form-group">
@@ -45,7 +45,7 @@ class EditTrackPage extends Component {
              name="title"
              value={this.state.formData.title}
              onChange={this.handleChange}
-             required
+             
            />
          </div>
          
