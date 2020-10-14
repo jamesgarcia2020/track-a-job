@@ -19,6 +19,21 @@ function TrackListItem(props) {
 >
  DETAILS
 </Link>
+<Link
+ className='btn btn-xs btn-warning'
+ to={{
+   pathname: '/edit',
+   state: {track: props.track},
+ }}
+>
+ EDIT
+</Link>
+<button
+ className="btn btn-xs btn-danger margin-left-10"
+ onClick={() => props.handleDeleteTrack(props.track._id)}
+>
+ DELETE
+</button>
       </div>
     </div>
   );

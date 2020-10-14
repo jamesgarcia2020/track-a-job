@@ -8,7 +8,8 @@ function TrackListPage(props) {
       <h1>Track List</h1>
       <div className="TrackListPage-grid">
         {props.tracks.map(track => (
-          <TrackListItem track={track} key={track._id} />
+          <TrackListItem track={track} key={track._id}
+          handleDeleteTrack={props.handleDeleteTrack} />
         ))}
       </div>
     </>

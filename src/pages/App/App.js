@@ -10,6 +10,7 @@ import * as trackAPI from '../../services/tracks-api';
 import TrackListPage from '../../components/TrackListPage/TrackListPage';
 import AddTrackPage from '../../components/AddTrackPage/AddTrackPage';
 import TrackDetailPage from '../../components/TrackDetailPage/TrackDetailPage';
+import EditTrackPage from '../../components/EditTrackPage/EditTrackPage';
 
 
 class App extends Component {
@@ -43,6 +44,26 @@ handleAddTrack = async newJobData => {
   () => this.props.history.push('/'));
  }
 
+ handleDeleteTrack= async id => {
+  await trackAPI.deleteOne(id);
+  this.setState(state => ({
+    // Yay, filter returns a NEW array
+    tracks: state.tracks.filter(t => t._id !== id)
+  }), () => this.props.history.push('/'));
+}
+
+handleUpdateTrack = async updatedJobData => {
+  const updatedTrack = await trackAPI.update(updatedJobData);
+  // Using map to replace just the puppy that was updated
+  const newTracksArray = this.state.tracks.map(j => 
+    j._id === updatedTrack._id ? updatedTrack : j
+  );
+  this.setState(
+    {tracks: newTracksArray},
+    // This cb function runs after state is updated
+    () => this.props.history.push('/')
+  );
+ }
 
 render(){
   return (
@@ -75,6 +96,7 @@ render(){
           <Route exact path='/' render={() => 
             <TrackListPage
               tracks={this.state.tracks}
+              handleDeleteTrack={this.handleDeleteTrack}
             />
           } />
           <Route exact path='/add' render={() => 
@@ -86,6 +108,17 @@ render(){
 <Route exact path='/details' render={({location}) => 
  <TrackDetailPage location={location}/>
 } />
+
+<Route 
+exact 
+path='/edit' 
+render={({ location }) => (
+ <EditTrackPage
+   handleUpdateTrack={this.handleUpdateTrack}
+   location={location}
+ />
+)} 
+/>
         </main>
       </Switch>
     </div>
