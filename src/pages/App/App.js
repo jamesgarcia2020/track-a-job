@@ -1,19 +1,27 @@
 import React, {Component} from 'react';
 import './App.css';
-import MainPage from '../MainPage/MainPage';
+// import MainPage from '../MainPage/MainPage';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
-import {Route, Switch } from 'react-router-dom'
+import {Route, Switch, NavLink } from 'react-router-dom'
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
+import * as trackAPI from '../../services/tracks-api';
+import TrackListPage from '../../components/TrackListPage/TrackListPage';
+import AddTrackPage from '../../components/AddTrackPage/AddTrackPage';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-        user: userService.getUser()
+        user: userService.getUser(),
+        tracks: []
     };
+}
+async componentDidMount() {
+  const tracks = await trackAPI.getAll();
+  this.setState({tracks});
 }
 
 handleLogout = () => {
@@ -25,22 +33,29 @@ handleSignupOrLogin = () => {
   this.setState({ user: userService.getUser() });
 }
 
+handleAddTrack = async newJobData => {
+  const newJob = await trackAPI.create(newJobData);
+  this.setState(state => ({
+    tracks: [...state.tracks, newJob]
+  }),
+  // Using cb to wait for state to update before rerouting
+  () => this.props.history.push('/'));
+ }
+
 
 render(){
   return (
     <div className="App">
-    <header><nav>
+    <header className="App-header">Track-A-Job<nav>
+    <NavLink exact to='/'>Tracker LIST</NavLink>
+    &nbsp;&nbsp;&nbsp;
+    <NavLink exact to='/add'>Add Tracker</NavLink>
       <NavBar user={this.state.user}
         handleLogout={this.handleLogout}
          />
     </nav></header>
       <Switch>
-      <Route exact path="/" render={() =>
-        <MainPage />
-      } />
-      <Route exact path="/details" render={() =>
-        <h1>This is the details page.</h1>
-      } />
+      
      
      <Route exact path='/signup' render={({ history }) => 
       <SignupPage
@@ -54,6 +69,19 @@ render(){
               history={history}
             />
           }/>
+
+          <main>  
+          <Route exact path='/' render={() => 
+            <TrackListPage
+              tracks={this.state.tracks}
+            />
+          } />
+          <Route exact path='/add' render={() => 
+            <AddTrackPage
+    handleAddTrack={this.handleAddTrack}
+  />
+} />
+        </main>
       </Switch>
     </div>
   );
