@@ -7,7 +7,7 @@ function TrackListItem(props) {
   return (
     <div className='panel panel-default'>
       <div className="panel-heading">
-        <h3 className='panel-title'>{props.track.company}</h3>
+        <h3 className='panel-title'>{props.track.title}</h3>
       </div>
       <div className='panel-footer TrackListItem-action-panel'>
       <Link

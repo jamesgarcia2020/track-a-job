@@ -58,7 +58,7 @@ class AddTrackPage extends Component {
            <label>Date Applied</label>
            <input
              className="form-control"
-             type="datetime-local"
+             type="date"
              name="dateApplied"
              value={this.state.formData.dateApplied}
              onChange={this.handleChange}
