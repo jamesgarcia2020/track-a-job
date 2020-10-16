@@ -25,6 +25,9 @@ function TrackCard({track}) {
       </div>
       <div className='panel-footer'>
         <Link to='/'>RETURN TO LIST</Link>
+        
+        
+        
       </div>
     </div>
   );

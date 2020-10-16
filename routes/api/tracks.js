@@ -6,9 +6,10 @@ var tracksCtrl = require('../../controllers/api/tracks');
 /* GET /api/tracks */
 router.get('/', tracksCtrl.index);
 router.get('/:id', tracksCtrl.show);
-router.post('/', tracksCtrl.create);
-router.delete('/:id', tracksCtrl.delete);
-router.put('/:id', tracksCtrl.update);
+router.post('/',  tracksCtrl.create);
+router.delete('/:id',  tracksCtrl.delete);
+router.put('/:id',   tracksCtrl.update);
+router.get('/users/:id' , tracksCtrl.usertracks)
 
 
 

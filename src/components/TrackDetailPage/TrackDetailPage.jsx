@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackCard from '../../components/TrackCard/TrackCard';
+import './TrackDetailPage.css';
 
 function TrackDetailPage(props) {
  // Refer to PuppyListItem to see how puppy is being passed via the <Link>

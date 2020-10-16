@@ -1,7 +1,8 @@
 const BASE_URL = '/api/tracks';
 
-export function getAll() {
-  return fetch(BASE_URL)
+export function getAllUserTracks(id) {
+  console.log('getAllUserTracks', id)
+  return fetch(`${BASE_URL}/users/${id}`) 
   .then(res => res.json());
 }
 

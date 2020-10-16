@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-// import MainPage from '../MainPage/MainPage';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
-import {Route, Switch, NavLink } from 'react-router-dom'
+import {Route, Switch } from 'react-router-dom'
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
 import * as trackAPI from '../../services/tracks-api';
@@ -21,19 +20,26 @@ class App extends Component {
         tracks: []
     };
 }
-async componentDidMount() {
-  const tracks = await trackAPI.getAll();
+async getUserTracker() {
+  const tracks = await trackAPI.getAllUserTracks(this.state.user._id);
   this.setState({tracks});
 }
 
 handleLogout = () => {
   userService.logout();
-  this.setState({ user: null });
+  this.setState({ user: null, tracks: [] });
 }
 
 handleSignupOrLogin = () => {
-  this.setState({ user: userService.getUser() });
-}
+  this.setState(state => ({
+    user: userService.getUser()
+    }),
+    // Using cb to wait for state to update before rerouting
+    () => this.getUserTracker());
+
+} 
+
+
 
 handleAddTrack = async newJobData => {
   const newJob = await trackAPI.create(newJobData);
@@ -68,12 +74,14 @@ handleUpdateTrack = async updatedJobData => {
 render(){
   return (
     <div className="App">
-    <header className="App-header">Track-A-Job<nav>
-    <NavLink exact to='/'>Tracker LIST</NavLink>
+    <header className="App-header">Track-A-Job
+    <nav>
+    {/* <NavLink exact to='/'>Tracker LIST</NavLink> */}
     &nbsp;&nbsp;&nbsp;
-    <NavLink exact to='/add'>Add Tracker</NavLink>
+    
       <NavBar user={this.state.user}
         handleLogout={this.handleLogout}
+        handleAddTrack={this.handleAddTrack}
          />
     </nav></header>
       <Switch>
@@ -102,6 +110,7 @@ render(){
           <Route exact path='/add' render={() => 
             <AddTrackPage
     handleAddTrack={this.handleAddTrack}
+    user={this.state.user}
   />
 } />
 

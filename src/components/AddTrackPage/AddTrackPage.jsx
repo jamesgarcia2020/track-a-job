@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class AddTrackPage extends Component {
  state = {
@@ -11,6 +12,7 @@ class AddTrackPage extends Component {
      level: '',
      nextStep: '',
      applicationStatus: '',
+     user: this.props.user._id
    }
  };
 
@@ -32,6 +34,7 @@ class AddTrackPage extends Component {
  render() {
    return (
      <>
+     
        <h1>Add Job</h1>
        <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
          <div className="form-group">
@@ -107,6 +110,7 @@ class AddTrackPage extends Component {
          >
            ADD Track
          </button>
+         <Link to='/'>CANCEL</Link>
        </form>
      </>
    );

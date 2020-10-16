@@ -5,9 +5,17 @@ module.exports = {
     show,
     create,
     delete: deleteOne,
-    update
+    update,
+    usertracks
   };
   
+  async function usertracks(req, res) {
+    console.log('index function', req.params.id)
+    const tracks = await Track.find({ 'user': req.params.id})
+    console.log(tracks);
+    res.status(200).json(tracks);
+
+  }
   async function index(req, res) {
     const tracks = await Track.find({});
     res.status(200).json(tracks);
