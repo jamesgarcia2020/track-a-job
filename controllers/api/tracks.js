@@ -10,9 +10,7 @@ module.exports = {
   };
   
   async function usertracks(req, res) {
-    console.log('index function', req.params.id)
     const tracks = await Track.find({ 'user': req.params.id})
-    console.log(tracks);
     res.status(200).json(tracks);
 
   }

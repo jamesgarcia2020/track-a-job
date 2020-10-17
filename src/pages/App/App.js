@@ -60,7 +60,7 @@ handleAddTrack = async newJobData => {
 
 handleUpdateTrack = async updatedJobData => {
   const updatedTrack = await trackAPI.update(updatedJobData);
-  // Using map to replace just the puppy that was updated
+  // Using map to replace just the job that was updated
   const newTracksArray = this.state.tracks.map(j => 
     j._id === updatedTrack._id ? updatedTrack : j
   );
