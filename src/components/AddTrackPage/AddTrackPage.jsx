@@ -35,10 +35,10 @@ class AddTrackPage extends Component {
    return (
      <>
      
-       <h1>Add Job</h1>
+       <h1>Add A Job</h1>
        <form className="form" ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
          <div className="form-group">
-           <label>Company</label>
+           <label>Company:</label>
            <input
              className="form-control"
              name="company"
@@ -48,7 +48,7 @@ class AddTrackPage extends Component {
            />
          </div>
          <div className="form-group">
-           <label>Title</label>
+           <label>Title:</label>
            <input
              className="form-control"
              name="title"
@@ -58,7 +58,7 @@ class AddTrackPage extends Component {
            />
          </div>
          <div className="form-group">
-           <label>Date Applied</label>
+           <label>Date Applied:</label>
            <input
              className="form-control"
              type="date"
@@ -68,7 +68,7 @@ class AddTrackPage extends Component {
            />
          </div>
          <div className="form-group">
-           <label>Location</label>
+           <label>Location:</label>
            <input
              className="form-control"
              name="location"
@@ -77,7 +77,7 @@ class AddTrackPage extends Component {
            />
          </div>
          <div className="form-group">
-           <label>Level</label>
+           <label>Link:</label>
            <input
              className="form-control"
              name="level"
@@ -86,7 +86,7 @@ class AddTrackPage extends Component {
            />
          </div>
          <div className="form-group">
-           <label>Next Step</label>
+           <label>Next Step:</label>
            <input
              className="form-control"
              name="nextStep"
@@ -95,7 +95,7 @@ class AddTrackPage extends Component {
            />
          </div>
          <div className="form-group">
-           <label>Application Notes</label>
+           <label>Application Notes:</label>
            <textarea
              className="form-control"
              name="applicationStatus"

@@ -15,18 +15,19 @@ function TrackCard({track}) {
       </div>
       <div className='panel-body'>
         <dl>
-          <dt>Title</dt>
-          <dd>{track.title}</dd>
-          <dt>Date Applied</dt>
-          <dd>{track.dateApplied}</dd>
-          <dt>Location</dt>
-          <dd>{track.location}</dd>
-          <dt>Level</dt>
-          <a href={track.level} rel="noopener noreferrer" alt="link" target="_blank">{track.level}</a>
-          <dt>Next Steps</dt>
-          <dd>{track.nextStep}</dd>
-          <dt>Important Notes/Conversations</dt>
-          <dd>{track.applicationStatus}</dd>
+          <dt>Title:</dt>
+          <dd>{track.title}</dd><br></br>
+          <dt>Date Applied:</dt>
+          <dd>{track.dateApplied}</dd><br></br>
+          <dt>Location:</dt>
+          <dd>{track.location}</dd><br></br>
+          <dt>Link:</dt>
+          
+          <a className="btn btn-outline-primary" href={track.level} rel="noopener noreferrer" role="button" alt="link" target="_blank">{track.level}</a><br></br><br></br>
+          <dt>Next Steps:</dt>
+          <dd>{track.nextStep}</dd><br></br>
+          <dt>Important Notes/Conversations:</dt>
+          <dd>{track.applicationStatus}</dd><br></br><br></br><br></br><br></br>
         </dl>
         
       </div>

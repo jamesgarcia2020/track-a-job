@@ -14,7 +14,7 @@ function TrackListItem(props) {
       </div>
       <div className='panel-footer TrackListItem-action-panel'>
       <Link
- className='btn btn-xs btn-info'
+ className='btn btn-xs btn-success'
  to={{
    pathname: '/details',
    state: {track: props.track}
@@ -23,7 +23,7 @@ function TrackListItem(props) {
  DETAILS
 </Link>
 <Link
- className='btn btn-xs btn-warning'
+ className='btn btn-xs btn-info'
  to={{
    pathname: '/edit',
    state: {track: props.track},

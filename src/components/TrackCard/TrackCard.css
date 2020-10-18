@@ -1,5 +1,10 @@
 .panel-body{
-    color: var(--accent);
-    background-color: powderblue;
+    color: black;
+    background-color: white;
+    
 
+}
+
+a {
+    color: black
 }
