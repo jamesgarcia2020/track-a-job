@@ -38,11 +38,11 @@ class LoginPage extends Component {
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit} >
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Username:</label>
               <input id="username" type="email" className="form-control" value={this.state.email} name="email" onChange={this.handleChange} />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password:</label>
               <input type="password" className="form-control" id="password" value={this.state.pw} name="pw" onChange={this.handleChange} />
           </div>
           
