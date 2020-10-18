@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     margin: 0 40 20px;
-    background-color: grey;
+    background-color: lightgray;
+    color: black;
   }
   .NavBar-link {
     margin: 0 10px;

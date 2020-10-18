@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import './EditTrackPage.css'
 
 class EditTrackPage extends Component {
  state = {
@@ -27,7 +28,7 @@ class EditTrackPage extends Component {
    return (
      <>
        <h1>Edit Job</h1>
-       <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
+       <form className="form" ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
          <div className="form-group">
            <label>Company</label>
            <input
@@ -77,10 +78,12 @@ class EditTrackPage extends Component {
            />
          </div>
          <div className="form-group">
-           <label>Application Status</label>
-           <input
+           <label>My Application Notes</label>
+           <textarea
              className="form-control"
              name="applicationStatus"
+             rows="15"
+             
              value={this.state.formData.applicationStatus}
              onChange={this.handleChange}
            />

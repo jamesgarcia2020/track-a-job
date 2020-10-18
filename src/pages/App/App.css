@@ -2,10 +2,12 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: 7vmin auto;
+  
 }
 
 .App-header {
   background-color: var(--black);
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,6 +18,16 @@
 
 .App main {
   background-color: var(--background);
+  background: url('./sydney.jpg');
+  
+  
+  background-size: cover;
+  
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+  
+
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -23,6 +35,11 @@
 }
 
 .App main h1 {
-  color: var(--secondary-dark);
+  color: var(--accent);
   margin-bottom: 5vmin;
+  background: white;
+  padding: 10px 20px;
+  opacity: .95;
+    
+
 }

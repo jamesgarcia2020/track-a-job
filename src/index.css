@@ -15,9 +15,10 @@ code {
 :root {
   --black: #07020D;
   --accent: #5DB7DE;
-  --background: #4bc04b;
+  --background: lightblue;
   --secondary: #A39B8B;
   --secondary-dark: #716A5C;
+  
 }
 
 a {
@@ -45,3 +46,15 @@ dl {
 .margin-left-10 {
   margin-left: 10px;
 }
+
+.panel-body{
+  color: var(--accent);
+  background-color: powderblue;
+  
+
+}
+
+.panel-title1 {
+  color: green;
+}
+

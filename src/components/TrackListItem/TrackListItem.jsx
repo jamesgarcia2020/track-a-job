@@ -2,11 +2,15 @@ import React from 'react';
 import './TrackListItem.css';
 import { Link } from 'react-router-dom'
 
+
 function TrackListItem(props) { 
   return (
     <div className='panel panel-default'>
       <div className="panel-heading">
-        <h3 className='panel-title'>{props.track.title}</h3>
+        <h3 className='panel-title'>Company: {props.track.company}</h3><br></br>
+        <h3 className='panel-title'>Title: {props.track.title}</h3><br></br>
+        <h3 className='panel-title'>Next Step: {props.track.nextStep}</h3>
+        
       </div>
       <div className='panel-footer TrackListItem-action-panel'>
       <Link

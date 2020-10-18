@@ -3,12 +3,11 @@ const Schema = mongoose.Schema;
 
 
 
+
 var trackSchema = new Schema({
   company: {type: String, required: true},
   title: {type: String, default: 'Engineer'},
-  dateApplied: {type: Date, default: function () {
-    return new Date().getFullYear();
-  }},
+  dateApplied: {type: Date},
   location: {type: String},
   level: {type: String},
   nextStep: {type: String, required: true},

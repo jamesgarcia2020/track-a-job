@@ -7,7 +7,7 @@ class AddTrackPage extends Component {
    formData: {
      company: '',
      title: 'Engineer',
-     dateApplied: '',
+     dateApplied: '2020-10-23',
      location: '',
      level: '',
      nextStep: '',
@@ -36,7 +36,7 @@ class AddTrackPage extends Component {
      <>
      
        <h1>Add Job</h1>
-       <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
+       <form className="form" ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
          <div className="form-group">
            <label>Company</label>
            <input
@@ -95,13 +95,15 @@ class AddTrackPage extends Component {
            />
          </div>
          <div className="form-group">
-           <label>Application Status</label>
-           <input
+           <label>Application Notes</label>
+           <textarea
              className="form-control"
              name="applicationStatus"
+             rows="3"
              value={this.state.formData.applicationStatus}
              onChange={this.handleChange}
-           />
+           >
+           </textarea>
          </div>
          <button
            type="submit"
