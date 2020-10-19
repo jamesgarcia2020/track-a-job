@@ -3,9 +3,13 @@
 
 
 ## ScreenShots
-##### ![Home Page](https://i.imgur.com/DnKatIJ.png)
+##### ![Home Page](https://i.imgur.com/jMDBb2z.png)
 
-#### ![Job Status Page](https://i.imgur.com/kU1iR1y.png)
+#### ![Job Status Page](https://i.imgur.com/CgL195B.png)
+#### ![Job Status Page](https://i.imgur.com/tGEsWI5.png)
+#### ![Job Status Page](https://i.imgur.com/Hvqp5Mx.png)
+#### ![Job Status Page](https://i.imgur.com/ao4j48M.png)
+#### ![Job Status Page](https://i.imgur.com/Mp8mXEj.png)
 
 ## Technologies Used
 ##### MERN-stack, React, HTML, CSS, Javascript, Node.js, Mongoose, Mongodb, Express, AJAX, Bootstrap, Heroku
@@ -20,6 +24,7 @@
 ## Next Steps
 1. Turn the home page into a table.
 1. Create a runninning total of jobs.
+1. Close out jobs without deleting them.
 
 
 
